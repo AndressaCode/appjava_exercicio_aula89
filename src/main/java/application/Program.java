@@ -7,6 +7,7 @@
  * nome e email do estudante, bem como qual dos quartos ele escolheu (de 0 a 9). Suponha
  * que seja escolhido um quarto vago. Ao final, seu programa deve imprimir um relatório de
  * todas ocupações do pensionato, por ordem de quarto, conforme exemplo.
+ * 
  * How many rooms will be rented? 3
 
  * Rent #1
@@ -32,28 +33,23 @@
 package application;
 
 import entities.Rent;
-import java.util.Locale;
 import java.util.Scanner;
 
-/**
- *
- * @author Andressa Silva
- */
-public class Program {
+public class Program{
     
     public static void main(String[] args){
-
+    
         Scanner sc = new Scanner(System.in);
         
+        Rent[] vect = new Rent[10];
         
         System.out.print("How many rooms will be rented? ");
-        int r = sc.nextInt();
+        int n = sc.nextInt();
         
-        Rent[] vect = new Rent[r];
-        
-        for(int i=0; i<r; i++){
-            sc.nextLine(); // para consumir o enter acima
-            System.out.printf("Rent #%d %n", i+1);
+        System.out.println();
+        for(int i=0; i<n; i++){
+            sc.nextLine();
+            System.out.printf("Rent #%d%n", i+1);
             System.out.print("Name: ");
             String name = sc.nextLine();
             System.out.print("Email: ");
@@ -61,18 +57,19 @@ public class Program {
             System.out.print("Room: ");
             int room = sc.nextInt();
             System.out.println();
-            vect[i] = new Rent(name, email);
+            vect[room] = new Rent(name, email);
+        }
+        System.out.println();
+        System.out.println("Busy rooms: ");
+        for(int i=0; i<10; i++){
+            if(vect[i] != null){
+                System.out.println("Room " + i + ": " + vect[i]);
+            }
         }
         
-        System.out.println("Busy rooms: ");
-        System.out.println();
-        for(int i=0; i<vect.length; i++){
-            System.out.print(vect[i].getRoom() + ": " +
-                             vect[i].getName() + ", " +  
-                             vect[i].getEmail());
-            System.out.println();
-        }
         sc.close();
     }
-    
 }
+
+
+

@@ -13,7 +13,6 @@ public class Rent {
     
     private String name;
     private String email;
-    private int room;
     
     public Rent(){
     }
@@ -31,7 +30,7 @@ public class Rent {
         this.name = name;
     }
     
-    public String getEmail(){
+    public String getEmail(String email){
         return email;
     }
     
@@ -39,13 +38,7 @@ public class Rent {
         this.email = email;
     }
     
-    public int getRoom(){
-        return room;
+    public String toString(){
+        return name + ", " + email;
     }
-    
-    public void setRoom(int room){
-        this.room = room;
-    }
-    
-    
 }
