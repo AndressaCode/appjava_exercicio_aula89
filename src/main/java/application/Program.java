@@ -45,12 +45,11 @@ public class Program {
 
         Scanner sc = new Scanner(System.in);
         
-        Rent[] vect = new Rent[10];
         
         System.out.print("How many rooms will be rented? ");
         int r = sc.nextInt();
         
-        
+        Rent[] vect = new Rent[r];
         
         for(int i=0; i<r; i++){
             sc.nextLine(); // para consumir o enter acima
@@ -62,8 +61,7 @@ public class Program {
             System.out.print("Room: ");
             int room = sc.nextInt();
             System.out.println();
-            
-            vect[i] = new Rent(name, email, room);
+            vect[i] = new Rent(name, email);
         }
         
         System.out.println("Busy rooms: ");
